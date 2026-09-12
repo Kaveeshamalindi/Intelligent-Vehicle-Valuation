@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CarPrice AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Background -->
+
+    <div class="background"></div>
+
+    <div class="background-overlay"></div>
+
+
+    <!-- Music -->
+
+    <audio id="backgroundMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- Music Button -->
+
+    <button
+        id="musicButton"
+        class="music-button">
+
+        🔇
+
+    </button>
+
+
+    <!-- Main Application -->
+
+    <div class="app">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="topbar">
+
+
+            <div class="brand">
+
+
+                <div class="brand-icon">
+                    💥
+                </div>
+
+
+                <div>
+
+                    <h1>
+                        CarMind AI
+                    </h1>
+
+                    <p>
+                        Intelligent Vehicle Valuation
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                AI SYSTEM ONLINE
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <main class="dashboard">
+
+
+            <!-- ================= LEFT PANEL ================= -->
+
+            <section class="input-panel">
+
+
+                <div class="section-title">
+
+                    <span>
+                        VEHICLE INFORMATION
+                    </span>
+
+                    <h2>
+                        Tell us about your car
+                    </h2>
+
+                    <p>
+                        Enter the vehicle details and
+                        let our machine learning model
+                        estimate its value.
+                    </p>
+
+                </div>
+
+
+
+                <form id="predictionForm">
+
+
+                    <!-- Brand + Model -->
+
+                    <div class="form-row">
+
+
+                        <div class="field">
+
+                            <label>
+                                Brand
+                            </label>
+
+                            <input
+                                type="text"
+                                id="brand"
+                                placeholder="Toyota"
+                                required>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Model
+                            </label>
+
+                            <input
+                                type="text"
+                                id="model"
+                                placeholder="Corolla"
+                                required>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Year + Mileage -->
+
+                    <div class="form-row">
+
+
+                        <div class="field">
+
+                            <label>
+                                Manufacturing Year
+                            </label>
+
+                            <input
+                                type="number"
+                                id="year"
+                                placeholder="2022"
+                                min="1980"
+                                max="2026"
+                                required>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                Mileage (km)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="mileage"
+                                placeholder="45000"
+                                min="0"
+                                required>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Engine -->
+
+                    <div class="field">
+
+                        <label>
+                            Engine Size (L)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="engine_size"
+                            placeholder="1.5"
+                            min="0"
+                            step="0.1"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- Fuel + Transmission -->
+
+                    <div class="form-row">
+
+
+                        <div class="field">
+
+                            <label>
+                                Fuel Type
+                            </label>
+
+                            <select
+                                id="fuel_type"
+                                required>
+
+                                <option value="">
+                                    Select fuel
+                                </option>
+
+                                <option value="Petrol">
+                                    Petrol
+                                </option>
+
+                                <option value="Diesel">
+                                    Diesel
+                                </option>
+
+                                <option value="Hybrid">
+                                    Hybrid
+                                </option>
+
+                                <option value="Electric">
+                                    Electric
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Transmission
+                            </label>
+
+                            <select
+                                id="transmission"
+                                required>
+
+                                <option value="">
+                                    Select transmission
+                                </option>
+
+                                <option value="Manual">
+                                    Manual
+                                </option>
+
+                                <option value="Automatic">
+                                    Automatic
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- Condition -->
+
+                    <div class="field">
+
+                        <label>
+                            Condition
+                        </label>
+
+                        <select
+                            id="condition"
+                            required>
+
+                            <option value="">
+                                Select condition
+                            </option>
+
+                            <option value="New">
+                                New
+                            </option>
+
+                            <option value="Used">
+                                Used
+                            </option>
+
+                            <option value="Excellent">
+                                Excellent
+                            </option>
+
+                            <option value="Good">
+                                Good
+                            </option>
+
+                            <option value="Fair">
+                                Fair
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Button -->
+
+                    <button
+                        type="submit"
+                        id="predictButton"
+                        class="predict-button">
+
+
+                        <span>
+                            ⚡
+                        </span>
+
+
+                        Predict Vehicle Price
+
+
+                        <span>
+                            →
+                        </span>
+
+
+                    </button>
+
+
+                </form>
+
+
+            </section>
+
+
+
+            <!-- ================= RIGHT PANEL ================= -->
+
+            <section class="result-panel">
+
+
+                <!-- Online car image -->
+
+                <div class="car-image">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85"
+                        alt="Sports car">
+
+
+                </div>
+
+
+
+                <div class="result-content">
+
+
+                    <span class="estimate-label">
+                        AI MARKET ESTIMATE
+                    </span>
+
+
+                    <h2>
+                        Estimated Value
+                    </h2>
+
+
+                    <!-- Price -->
+
+                    <div
+                        id="prediction"
+                        class="price">
+
+                        —
+
+                    </div>
+
+
+                    <p class="price-description">
+
+                        Estimated using your trained
+                        machine learning model.
+
+                    </p>
+
+
+
+                    <!-- Loading -->
+
+                    <div
+                        id="loading"
+                        class="loading hidden">
+
+                        <div class="loader"></div>
+
+                        <span>
+                            AI is analyzing the vehicle...
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- Error -->
+
+                    <div
+                        id="error"
+                        class="error hidden">
+
+                    </div>
+
+
+
+                    <!-- Vehicle summary -->
+
+                    <div class="summary">
+
+
+                        <div class="summary-heading">
+
+                            VEHICLE SUMMARY
+
+                        </div>
+
+
+
+                        <div class="summary-item">
+
+                            <span>
+                                Vehicle
+                            </span>
+
+                            <strong
+                                id="summaryVehicle">
+
+                                —
+
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="summary-item">
+
+                            <span>
+                                Year
+                            </span>
+
+                            <strong
+                                id="summaryYear">
+
+                                —
+
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="summary-item">
+
+                            <span>
+                                Mileage
+                            </span>
+
+                            <strong
+                                id="summaryMileage">
+
+                                —
+
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="summary-item">
+
+                            <span>
+                                Engine
+                            </span>
+
+                            <strong
+                                id="summaryEngine">
+
+                                —
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <span>
+                Powered by Machine Learning
+            </span>
+
+            <span>
+                •
+            </span>
+
+            <span>
+                CarPrice AI
+            </span>
+
+        </footer>
+
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
