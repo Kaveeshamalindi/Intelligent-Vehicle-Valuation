@@ -2,7 +2,7 @@
 
 ### Intelligent Car Price Prediction System
 
-AutoVera AI is a machine learning web application that predicts the estimated price of a car based on its features such as brand, model, manufacturing year, mileage, engine size, fuel type, transmission, and condition.
+CarMind AI is a machine learning web application that predicts the estimated price of a car based on its features such as brand, model, manufacturing year, mileage, engine size, fuel type, transmission, and condition.
 
 The project combines a **Machine Learning model**, **Flask backend**, and **HTML/CSS/JavaScript frontend** to create a simple and interactive vehicle valuation experience.
 
@@ -167,8 +167,6 @@ Click:
 The trained machine learning model will return the estimated vehicle price.
 
 ---
-
-## 🤖 Machine Learning Model
 
 ## 🤖 Machine Learning Model
 
