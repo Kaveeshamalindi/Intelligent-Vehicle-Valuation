@@ -230,12 +230,6 @@ Then connect it through the HTML audio element.
 
 ---
 
-## 🌐 Online Images
-
-The application uses online automotive images, so car images don't need to be stored inside the repository.
-
----
-
 ## 📌 Project Purpose
 
 This project was created to practice the complete workflow of a beginner-friendly machine learning application:
