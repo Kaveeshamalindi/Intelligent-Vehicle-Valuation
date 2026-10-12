@@ -7,7 +7,7 @@ CarMind AI is a machine learning web application that predicts the estimated pri
 The project combines a **Machine Learning model**, **Flask backend**, and **HTML/CSS/JavaScript frontend** to create a simple and interactive vehicle valuation experience.
 
 <p align="center">
-  <img src="Images/pic1.png" width="600" style="display: inline-block;">
+  <img src="Images/pic1.png" width="800" style="display: inline-block;">
 </p>
 
 ---
